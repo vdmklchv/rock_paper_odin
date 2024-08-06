@@ -21,7 +21,7 @@ function getHumanChoice() {
     return choice.toLowerCase();
 }
 
-function playRound(computerChoice, humanChoice) {
+function playRound(computerChoice, humanChoice, humanScore, computerScore) {
     if (computerChoice === humanChoice) {
         console.log("It's a tie!")
     } else if (computerChoice === "rock") {
@@ -67,7 +67,7 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         computerChoice = getComputerChoice();
         humanChoice = getHumanChoice();
-        playRound(computerChoice, humanChoice);
+        playRound(computerChoice, humanChoice, humanScore, computerScore);
     }
 
     produceResult(humanScore, computerScore);
