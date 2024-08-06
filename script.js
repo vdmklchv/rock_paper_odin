@@ -54,7 +54,7 @@ function playRound(computerChoice, humanChoice) {
 
 function produceResult(humanScore, computerScore) {
     return `Human score: ${humanScore}
-    Computer score: ${computerScore}`;
+Computer score: ${computerScore}`;
 }
 
 function playGame() {
