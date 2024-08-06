@@ -48,6 +48,7 @@ function playRound(computerChoice, humanChoice) {
             console.log("You lose! Scissors beat paper.");
             incrementScore(computerScore);
         }
+    }
 }
 
 function incrementScore(playerScore, points = 1) {
