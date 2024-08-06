@@ -21,7 +21,7 @@ function getHumanChoice() {
     return choice.toLowerCase();
 }
 
-function playRound(computerChoice, humanChoice, humanScore, computerScore) {
+function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
         console.log("It's a tie!");
     } else if (computerChoice === "rock") {
@@ -57,7 +57,7 @@ function incrementScore(playerScore, points = 1) {
 
 function produceResult(humanScore, computerScore) {
     return `Human score: ${humanScore}
-            Computer score: ${computerScore}`;
+    Computer score: ${computerScore}`;
 }
 
 function playGame() {
@@ -70,7 +70,7 @@ function playGame() {
         playRound(cpuMove, humanMove, humanScore, computerScore);
     }
 
-    produceResult(humanScore, computerScore);
+    console.log(produceResult(humanScore, computerScore));
 
 }
 
