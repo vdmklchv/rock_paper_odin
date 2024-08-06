@@ -55,6 +55,26 @@ function incrementScore(playerScore, points = 1) {
     playerScore += points;
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function produceResult(humanScore, computerScore) {
+    return `Human score: ${humanScore}
+            Computer score: ${computerScore}`;
+}
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        computerChoice = getComputerChoice();
+        humanChoice = getHumanChoice();
+        playRound(computerChoice, humanChoice);
+    }
+
+    produceResult(humanScore, computerScore);
+
+}
+
+playGame();
+
+
 
