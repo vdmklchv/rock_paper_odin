@@ -12,3 +12,11 @@ function getComputerChoice() {
             return "Unknown";
     }
 }
+
+function getHumanChoice() {
+    let choice = null;
+    while (choice != "Rock" && choice != "Paper" && choice != "Scissors") {
+        choice = prompt("Please choose Rock, Paper or Scissors: ");
+    }
+    return choice;
+}
