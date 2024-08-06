@@ -3,20 +3,24 @@ function getComputerChoice() {
 
     switch(randNumber) {
         case 0:
-            return "Rock";
+            return "rock";
         case 1:
-            return "Paper";
+            return "paper";
         case 2:
-            return "Scissors";
+            return "scissors";
         default:
-            return "Unknown";
+            return "unknown";
     }
 }
 
 function getHumanChoice() {
     let choice = null;
-    while (choice != "Rock" && choice != "Paper" && choice != "Scissors") {
+    while (choice != "rock" && choice != "paper" && choice != "scissors") {
         choice = prompt("Please choose Rock, Paper or Scissors: ");
     }
-    return choice;
+    return choice.toLowerCase();
 }
+
+let humanScore = 0;
+let computerScore = 0;
+
