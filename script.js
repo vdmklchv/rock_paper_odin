@@ -13,14 +13,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = null;
-    while (choice != "rock" && choice != "paper" && choice != "scissors") {
-        choice = prompt("Please choose Rock, Paper or Scissors: ");
-    }
-    return choice.toLowerCase();
-}
-
 function playRound(computerChoice, humanChoice) {
     if (computerChoice === humanChoice) {
         setResultText("It's a tie!");
