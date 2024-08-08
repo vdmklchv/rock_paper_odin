@@ -52,11 +52,6 @@ function playRound(computerChoice, humanChoice) {
     }
 }
 
-function produceResult(humanScore, computerScore) {
-    return `Human score: ${humanScore}
-Computer score: ${computerScore}`;
-}
-
 function updateScore(player) {
     scores[player]++;
 }
