@@ -51,7 +51,6 @@ function updateScore(player) {
 }
 
 function play(e) {
-    
     let playerMove = e.target.textContent.toLowerCase();
     let cpuMove = getComputerChoice();
     let winner = playRound(cpuMove, playerMove);
@@ -60,7 +59,6 @@ function play(e) {
 
     if (isEnd()) {
         finishGame();
-        console.log("finish");
     }
 
 }
@@ -85,12 +83,36 @@ function getGlobalWinner() {
 function finishGame() {
     setResultText(`The global winner is ${getGlobalWinner()}`);
     disableButtons();
+    toggleRestartButton();
+}
+
+function restartGame() {
+    setResultText("Choose rock, paper or scissors to start.");
+    resetScore();
+    displayScore();
+    toggleRestartButton();
+    enablePlayButtons();
 }
 
 function disableButtons() {
-    for (button of elements.buttons) {
+    for (button of elements.playButtons) {
         button.disabled = true;
     }
+}
+
+function enablePlayButtons() {
+    for (button of elements.playButtons) {
+        button.disabled = false;
+    }
+}
+
+function toggleRestartButton() {
+    elements.restartButton.disabled = !elements.restartButton.disabled;
+}
+
+function resetScore() {
+    scores.humanScore = 0;
+    scores.computerScore = 0;
 }
 
 const scores = {
@@ -103,9 +125,13 @@ const elements = {
     resultTextArea: document.querySelector(".result-text"),
     humanScore: document.querySelector(".human-score"),
     computerScore: document.querySelector(".computer-score"),
-    buttons: document.querySelectorAll(".buttons > button"),
+    playButtons: document.querySelectorAll(".buttons > button"),
+    restartButton: document.querySelector(".restart-button"),
 }
 
+elements.restartButton.disabled = true;
+
 elements.buttonContainer.addEventListener('click', play);
+elements.restartButton.addEventListener('click', restartGame);
 
 
