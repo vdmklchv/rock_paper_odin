@@ -85,7 +85,4 @@ buttonContainer.addEventListener('click', (e) => {
     displayScore();
 })
 
-//playGame();
-
-
 
