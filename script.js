@@ -45,7 +45,9 @@ function playRound(computerChoice, humanChoice) {
 }
 
 function updateScore(player) {
-    scores[player]++;
+    if (player !== "none") {
+        player === "human" ? scores["humanScore"]++ : scores["computerScore"]++;
+    }
 }
 
 function displayScore() {
@@ -71,9 +73,7 @@ buttonContainer.addEventListener('click', (e) => {
     let playerMove = e.target.textContent.toLowerCase();
     let cpuMove = getComputerChoice();
     let winner = playRound(cpuMove, playerMove);
-    if (winner !== "none") {
-        winner === "human" ? updateScore("humanScore") : updateScore("computerScore");
-    }
+    updateScore(winner);
     displayScore();
 })
 
