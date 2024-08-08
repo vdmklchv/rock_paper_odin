@@ -82,7 +82,7 @@ function getGlobalWinner() {
 
 function finishGame() {
     setResultText(`The global winner is ${getGlobalWinner()}`);
-    disableButtons();
+    togglePlayButtons();
     toggleRestartButton();
 }
 
@@ -91,18 +91,12 @@ function restartGame() {
     resetScore();
     displayScore();
     toggleRestartButton();
-    enablePlayButtons();
+    togglePlayButtons();
 }
 
-function disableButtons() {
+function togglePlayButtons() {
     for (button of elements.playButtons) {
-        button.disabled = true;
-    }
-}
-
-function enablePlayButtons() {
-    for (button of elements.playButtons) {
-        button.disabled = false;
+        button.disabled = !button.disabled;
     }
 }
 
