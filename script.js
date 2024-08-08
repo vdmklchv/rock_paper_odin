@@ -57,23 +57,26 @@ function produceResult(humanScore, computerScore) {
 Computer score: ${computerScore}`;
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        let cpuMove = getComputerChoice();
-        let humanMove = getHumanChoice();
-        let winner = playRound(cpuMove, humanMove);
-        if (winner !== "none") {
-            winner === "human" ? humanScore++ : computerScore++;
-        }
-    }
-
-    console.log(produceResult(humanScore, computerScore));
+function updateScore(player) {
+    scores[player]++;
 }
 
-playGame();
+const scores = {
+    humanScore: 0,
+    computerScore: 0,
+}
+
+const buttonContainer = document.querySelector(".buttons");
+buttonContainer.addEventListener('click', (e) => {
+    let playerMove = e.target.textContent.toLowerCase();
+    let cpuMove = getComputerChoice();
+    let winner = playRound(cpuMove, playerMove);
+        if (winner !== "none") {
+            winner === "human" ? updateScore("humanScore") : updateScore("computerScore");
+        }
+})
+
+//playGame();
 
 
 
