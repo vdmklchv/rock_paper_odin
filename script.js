@@ -59,12 +59,12 @@ function play(e) {
 }
 
 function displayScore() {
-    humanScore.textContent = scores.humanScore;
-    computerScore.textContent = scores.computerScore;
+    elements.humanScore.textContent = scores.humanScore;
+    elements.computerScore.textContent = scores.computerScore;
 }
 
 function setResultText(text) {
-    resultTextArea.textContent = text;
+    elements.resultTextArea.textContent = text;
 }
 
 const scores = {
@@ -72,11 +72,13 @@ const scores = {
     computerScore: 0,
 }
 
-const buttonContainer = document.querySelector(".buttons");
-const resultTextArea = document.querySelector(".result-text");
-const humanScore = document.querySelector(".human-score");
-const computerScore = document.querySelector(".computer-score");
+const elements = {
+    buttonContainer: document.querySelector(".buttons"),
+    resultTextArea: document.querySelector(".result-text"),
+    humanScore: document.querySelector(".human-score"),
+    computerScore: document.querySelector(".computer-score"),
+}
 
-buttonContainer.addEventListener('click', play);
+elements.buttonContainer.addEventListener('click', play);
 
 
