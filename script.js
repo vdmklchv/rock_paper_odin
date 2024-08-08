@@ -50,6 +50,14 @@ function updateScore(player) {
     }
 }
 
+function play(e) {
+    let playerMove = e.target.textContent.toLowerCase();
+    let cpuMove = getComputerChoice();
+    let winner = playRound(cpuMove, playerMove);
+    updateScore(winner);
+    displayScore();
+}
+
 function displayScore() {
     humanScore.textContent = scores.humanScore;
     computerScore.textContent = scores.computerScore;
@@ -69,12 +77,6 @@ const resultTextArea = document.querySelector(".result-text");
 const humanScore = document.querySelector(".human-score");
 const computerScore = document.querySelector(".computer-score");
 
-buttonContainer.addEventListener('click', (e) => {
-    let playerMove = e.target.textContent.toLowerCase();
-    let cpuMove = getComputerChoice();
-    let winner = playRound(cpuMove, playerMove);
-    updateScore(winner);
-    displayScore();
-})
+buttonContainer.addEventListener('click', play);
 
 
