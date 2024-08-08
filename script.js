@@ -51,11 +51,18 @@ function updateScore(player) {
 }
 
 function play(e) {
+    
     let playerMove = e.target.textContent.toLowerCase();
     let cpuMove = getComputerChoice();
     let winner = playRound(cpuMove, playerMove);
     updateScore(winner);
     displayScore();
+
+    if (isEnd()) {
+        finishGame();
+        console.log("finish");
+    }
+
 }
 
 function displayScore() {
@@ -65,6 +72,25 @@ function displayScore() {
 
 function setResultText(text) {
     elements.resultTextArea.textContent = text;
+}
+
+function isEnd() {
+    return scores.humanScore === 5 || scores.computerScore === 5;
+}
+
+function getGlobalWinner() {
+    return scores.humanScore === 5 ? "human" : "computer";
+}
+
+function finishGame() {
+    setResultText(`The global winner is ${getGlobalWinner()}`);
+    disableButtons();
+}
+
+function disableButtons() {
+    for (button of elements.buttons) {
+        button.disabled = true;
+    }
 }
 
 const scores = {
@@ -77,6 +103,7 @@ const elements = {
     resultTextArea: document.querySelector(".result-text"),
     humanScore: document.querySelector(".human-score"),
     computerScore: document.querySelector(".computer-score"),
+    buttons: document.querySelectorAll(".buttons > button"),
 }
 
 elements.buttonContainer.addEventListener('click', play);
